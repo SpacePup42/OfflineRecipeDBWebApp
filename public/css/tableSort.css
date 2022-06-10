@@ -1,0 +1,71 @@
+
+.fullMenuTable,
+.detailMenuTable {
+  border-collapse: collapse; /* Collapse borders */
+  width: 100%; /* Full-width */
+  border: thin solid #ddd; /* Add a grey border */
+  font-size: 18px; /* Increase font-size */
+}
+
+.fullMenuTable th, 
+.fullMenuTable td,
+.detailMenuTable th, 
+.detailMenuTable td, {
+  text-align: left; /* Left-align text */
+  padding: 2px 5px;
+}
+
+.fullMenuTable thead, 
+.detailMenuTable thead {
+    background-color: #009879;
+    color: #ffffff;
+}
+
+/* every other row
+.fullMenuTable tbody tr:nth-of-type(even) {
+    background-color: lightgrey;
+}
+*/
+
+.fullMenuTable tbody tr {
+    background-color: lightgrey;
+}
+
+.fullMenuTable tr {
+  /* Add a bottom border to all table rows */
+  border-bottom: thin solid #ddd;
+}
+
+.detailMenuTable tr {
+  /* Add a bottom border to all table rows */
+  border-bottom: thin solid #ddd;
+  text-align:center;
+}
+.fullMenuTable tbody tr:last-of-type,
+.detailMenuTable tbody tr:last-of-type {
+    border-bottom: thin solid #009879;
+}
+
+.fullMenuTable tbody tr:hover {
+    background-color: #96C3EB;
+}
+
+
+.fullMenuTable .th-sort-asc::after {
+  content: "\25b4";
+}
+
+.fullMenuTable .th-sort-desc::after {
+  content: "\25be";
+}
+
+.fullMenuTable .th-sort-asc::after,
+.fullMenuTable .th-sort-desc::after {
+  margin-left: 5px;
+}
+
+.fullMenuTable .th-sort-asc,
+.fullMenuTable .th-sort-desc {
+  background: rgba(0, 0, 0, 0.1);
+}
+

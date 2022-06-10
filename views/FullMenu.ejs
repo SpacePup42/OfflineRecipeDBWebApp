@@ -1,0 +1,41 @@
+<%- include("_header") -%>
+
+
+
+
+<div>
+<div id="searchBar">
+ <input type="text" id="searchInput" onkeyup="tableSearch()" placeholder="Search for Recipes..">
+ </div>
+  <table class= "fullMenuTable" id = "fullMenuTable" style="width:100%">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Cuisine</th>
+        <th>Effort</th>
+        <th>Method</th>
+	<th>Course</th>
+        <th>Diet</th>
+        <th style="display:none;">Ingredients</th>
+	</tr>
+    </thead>
+    <tbody>
+      <% for (const recipe of recipes) { %>
+        <tr>
+          <td><a class="alink detailCenter" href="/Recipes/<%= recipe.recipe_id %>" tabindex="-1"> <%= recipe.recipe_id %></a></td>
+          <td><a class="alink" href="/Recipes/<%= recipe.recipe_id %>" tabindex="-1"> <%= recipe.recipe_name %></a></td>
+          <td><a class="alink detailCenter" href="/Recipes/<%= recipe.recipe_id %>" tabindex="-1"> <%= recipe.cuisine %></a></td>
+          <td><a class="alink detailCenter" href="/Recipes/<%= recipe.recipe_id %>" tabindex="-1"> <%= recipe.effort %></a></td>
+          <td><a class="alink detailCenter" href="/Recipes/<%= recipe.recipe_id %>" tabindex="-1"> <%= recipe.method %></a></td>
+	<td><a class="alink detailCenter" href="/Recipes/<%= recipe.recipe_id %>" tabindex="-1"> <%= recipe.course %></a></td>
+	<td><a class="alink detailCenter" href="/Recipes/<%= recipe.recipe_id %>" tabindex="-1"> <%= recipe.diet %></a></td>
+          <td style="display:none;"><a class="alink" href="/Recipes/<%= recipe.recipe_id %>" tabindex="-1"> <%= recipe.recipe_ingredients %></a></td>
+       </tr>
+      <% } %>
+    </tbody>
+  </table>
+</div>
+
+<%- include("_footer") -%>
+

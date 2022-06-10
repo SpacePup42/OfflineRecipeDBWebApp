@@ -1,0 +1,78 @@
+<%- include("_genheader") -%>
+<!-- /Images/Food_Logo.png -->
+<h1>Recipe Added <%= recipe.date %></h1>
+
+<div>
+  <table class="detailMenuTable">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th class="detailLeft">Name</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><%= recipe.recipe_id %></td>
+          <td class="detailLeft"><%= recipe.recipe_name %></td>
+	</tr>
+    </tbody>
+  </table>
+
+<table class="detailMenuTable">
+    <thead>
+      <tr>
+        <th class="detailCenter">Cuisine</th>
+        <th class="detailCenter">Effort</th>
+        <th class="detailCenter">Method</th>
+        <th class="ddetailCenter">Course</th>
+        <th class="detailCenter">Diet</th>
+      </tr>
+    </thead>
+	<tbody>
+	<tr>
+          <td><%= recipe.cuisine %></td>
+          <td><%= recipe.effort %></td>
+          <td><%= recipe.method %></td>
+          <td><%= recipe.course %></td>
+          <td><%= recipe.diet %></td>
+        </tr>
+        <tr>
+          <td class="detailLeft ypadding" colspan="5"> My Notes: <%= recipe.recipe_notes %> </td>
+        </tr>
+          <tr>
+          <td class="detailLeft ypadding" colspan="5"> URL: <%= recipe.recipe_url %></td>
+        </tr>
+         
+        <tr>
+        <td class="detailLeft ypadding" colspan="5">
+        	<ul>
+        	
+        	<% for (const ingredient of ingredients) { %>
+  		<li><%=ingredient.substring(1,ingredient.length-1)%></li>
+  		<% } %>
+  		</ul> 
+	</td>
+        </tr>
+        <tr>
+         <td class="detailLeft ypadding" colspan="5">
+        	<ul class ="nobullet">
+        	
+        	<% for (const instruction of instructions) { %>
+  		<li><%=instruction.replace(/\n/, '')%></li>
+  		<br>
+  		<% } %>
+  		</ul> 
+	</td>
+        </tr>
+        <% if (typeof imageBuffer !== 'undefined') { %>
+        	<tr>
+        	  <td class="detailCenter" colspan="5"><img src='data:image/png;base64,<%=imageBuffer%>' alt="Recipe Picture DNE" style = "width: 100%;height: auto;"/></td>
+        	 <!-- <td class="detailCenter" colspan="5"><img src="/Images/<%= recipe.recipe_id %>.png" alt="Recipe Picture DNE"/></td> -->
+        	</tr>
+        <% } %>
+    </tbody>
+  </table>
+ </div>
+
+<%- include("_footer") -%>
+

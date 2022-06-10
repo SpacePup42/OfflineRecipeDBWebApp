@@ -1,0 +1,23 @@
+<%- include("_genheader") -%>
+
+<div>
+<h3 class="FeedbackTitle">Site Suggestion Form</h3>
+
+<form action="/Feedback/Submitted" method="POST" class="FeedbackField">
+		<fieldset>
+				
+				<br><br>
+				<label>Suggest improvements, comments and recipes</label>
+				<br><br>
+				<textarea id = 'InputText' name="text" maxlength="5000" placeholder="Resizable Area" cols="50" rows="5" style="border:outset 4px orange;width: 100%;height: auto;" required></textarea>
+				<br><br>
+
+				<!-- <button type ="reset">Reset</button> -->
+				<button type ="submit" class="btn">Submit</button>
+				<br><br>
+		</fieldset>
+	</form>
+</div>
+
+<%- include("_footer") -%>
+

@@ -1,0 +1,23 @@
+<%- include("_genheader") -%>
+
+<div>
+<h3 class="FeedbackTitle">New Recipe Form</h3>
+
+<form action="/Recipes/New/Create" method="POST" class="FeedbackField">
+		<fieldset>
+				
+				<br><br>
+				<label>Requires Recipe URL</label>
+				<br><br>
+				<textarea id = 'NewName' style="resize:none" name="xURL" maxlength="200" placeholder="Insert recipe URL here" cols="100" rows="1" style="border:outset 2px orange;" required></textarea>
+				<br><br>
+
+				<!-- <button type ="reset">Reset</button> -->
+				<button type ="submit" class="btn">Submit</button>
+				<br><br>
+		</fieldset>
+	</form>
+</div>
+
+<%- include("_footer") -%>
+

@@ -1,0 +1,145 @@
+<%- include("_genheader") -%>
+<!-- /Images/Food_Logo.png -->
+<h1>Recipe Added <%= recipe[0].date %></h1>
+
+
+<div>
+<form action="/Recipes/Publish" method="POST" class="FeedbackField" style="padding-left: 0px;" enctype="multipart/form-data">
+		<fieldset>
+<table class="detailMenuTable" style="width:100%">
+    <thead>
+      <tr>
+        <th style="width:5%">ID</th>
+        <th style="width:95%" class="detailLeft">Name</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+	<td class="detailLeft">
+	<input type="radio" id="ID" style = "display: none;" name="recipe_id" value="<%= recipe[0].recipe_id %>" checked>
+	<label for="ID"><%= recipe[0].recipe_id %></label><br>
+	</td>
+	  <td class="detailLeft"><textarea id = 'NewName' style="resize:none" name="text" maxlength="150" placeholder="<%= recipe[0].recipe_name %>" cols="100" rows="1" style="border:outset 2px orange;" required><%= recipe[0].recipe_name %></textarea></td>  
+         </tr>
+     <tbody>
+</table>
+
+<table class="detailMenuTable" style="width:100%">
+    <thead>
+      <tr>
+        <th style="width:20%" class="detailLeft">Cuisine</th>
+        <th style="width:20%" class="detailLeft">Effort</th>
+        <th style="width:20%" class="detailLeft">Method</th>
+        <th style="width:20%" class="detailLeft">Course</th>
+        <th style="width:20%" class="detailLeft">Diet</th>
+      </tr>
+    </thead>
+    <tbody>
+	<tr>
+         <td class="detailLeft">
+	<% for (const type of cuisine) { %>
+<input type="radio" id="<%=type.cuisine%>" name="cuisine" value="<%= type.cuisine %>" required>
+<label for="<%=type.cuisine%>"><%= type.cuisine %></label><br>
+	<% } %>
+</td>
+
+	<td class="detailLeft">
+	<% for (const type of effort) { %>
+<input type="radio" id="<%=type.effort%>" name="effort" value="<%= type.effort %>" required>
+<label for="<%=type.effort%>"><%= type.effort %></label><br>
+	<% } %>
+	</td>
+
+	<td class="detailLeft">
+	<% for (const type of method) { %>
+<input type="radio" id="<%=type.method%>" name="method" value="<%= type.method %>" required>
+<label for="<%=type.method%>"><%= type.method %></label><br>
+	<% } %>
+	</td>
+
+	<td class="detailLeft">
+	<% for (const type of course) { %>
+<input type="radio" id="<%=type.course%>" name="course" value="<%= type.course %>" required>
+<label for="<%=type.course%>"><%= type.course %></label><br>
+	<% } %>
+	</td>
+
+	<td class="detailLeft">
+	<% for (const type of diet) { %>
+<input type="radio" id="<%=type.diet%>" name="diet" value="<%= type.diet %>" required>
+<label for="<%=type.diet%>"><%= type.diet %></label><br>
+	<% } %>
+	</td>
+        </tr>
+        
+
+        </tr>
+        <tr>
+        <!--  <td class="detailLeft ypadding" colspan="5"> My Notes: <%= recipe[0].recipe_notes %> </td> -->
+
+	<td class="detailLeft ypadding" colspan="5">
+	<br><label><h3 class="EditTitle">Recipe Notes</h3></label><br>
+	<textarea id = 'NewNote' name="text" maxlength="5000" placeholder="<%= recipe[0].recipe_notes %>" cols="100" rows="1" style="border:outset 1px orange;" required><%= recipe[0].recipe_notes %></textarea></td>
+
+        </tr>
+          <tr>
+        <!-- <td class="detailLeft ypadding" colspan="5"> URL: <%= recipe[0].recipe_url %></td> -->
+
+	<td class="detailLeft ypadding" colspan="5">
+	<br><label><h3 class="EditTitle">Recipe URL</h3></label><br>
+	<textarea id = 'NewURL' name="text" maxlength="5000" placeholder="<%= recipe[0].recipe_url %>" cols="100" rows="1" style="border:outset 1px orange;" required><%= recipe[0].recipe_url %></textarea></td>
+        </tr>
+         
+        <tr>
+
+        <td class="detailLeft ypadding" colspan="5">
+	<br><label><h3 class="EditTitle">Recipe Ingredients</h3></label><br>
+	<textarea id = 'NewIngredients' name="text" maxlength="5000" placeholder="<%= recipe[0].recipe_ingredients %>" cols="100" rows="5" style="border:outset 1px orange;" required><%= recipe[0].recipe_ingredients %></textarea></td>
+
+        </tr>
+        <tr>
+        <td class="detailLeft ypadding" colspan="5">
+	<br><label><h3 class="EditTitle">Recipe Instructions</h3></label><br>
+	<textarea id = 'NewInstructions' name="text" maxlength="5000" placeholder="<%= recipe[0].recipe_instructions %>" cols="100" rows="10" style="border:outset 1px orange;" required><%= recipe[0].recipe_instructions %></textarea>
+	</td>
+
+        </tr>
+        <% if (typeof imageBuffer !== 'undefined') { %>
+        	<tr>
+        	  
+	<td class="detailLeft ypadding" colspan="5">
+	<br>
+	<label for="avatar">Choose a new picture:</label>
+	<input type="file" id="avatar" name="avatar" accept="image/png">
+	</td>
+
+	</tr>
+
+	<tr>
+	<br>
+	<td class="detailCenter" colspan="5">Current picture<br><img src='data:image/png;base64,<%=imageBuffer%>' alt="Recipe Picture DNE" /></td>
+        	 <!-- <td class="detailCenter" colspan="5"><img src="/Images/<%= recipe.recipe_id %>.png" alt="Recipe Picture DNE" /></td> -->
+        	</tr>
+
+        <% } else { %>
+	<tr>
+        	  
+	<td class="detailLeft ypadding" colspan="5">
+	<br>
+	<label for="avatar">Choose a new picture:</label>
+	<input type="file" id="avatar" name="avatar" accept="image/png">
+	</td>
+
+	</tr>
+	<% } %>
+    </tbody>
+</table>
+<button type ="submit" class="btn" style="padding: 12px 28px;">Submit</button>
+
+
+</fieldset>
+	</form>
+
+<div>
+<%- include("_footer") -%>
+
