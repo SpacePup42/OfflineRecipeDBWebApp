@@ -16,11 +16,11 @@ app.set("view engine", "ejs");
 //Location of ejs views
 app.set("views", path.join(__dirname, "views"));
 
-//Location of static resources
-app.use(express.static(__dirname + '/public'))
-
 //favicno icon
 app.use(favicon(path.join(__dirname, 'public','Images', 'favicon.ico')))
+
+//Location of static resources
+app.use(express.static(__dirname + '/public'))
 
 //parse form data
 app.use(express.urlencoded({ extended:false}))
